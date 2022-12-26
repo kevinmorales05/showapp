@@ -1,11 +1,11 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { SafeAreaView, Text, View } from 'react-native';
 
 const OnlineEventsScreen = () => {
   return (
-    <View>
+    <SafeAreaView>
         <Text>Online Events</Text>
-    </View>
+    </SafeAreaView>
   )
 }
 

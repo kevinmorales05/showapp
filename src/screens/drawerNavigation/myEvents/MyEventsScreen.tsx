@@ -1,11 +1,11 @@
 import React from 'react'
-import { Text, View } from 'react-native'
+import { SafeAreaView, Text, View } from 'react-native'
 
 const MyEventsScreen = () => {
   return (
-    <View>
+    <SafeAreaView>
         <Text>My events</Text>
-    </View>
+    </SafeAreaView>
   )
 }
 
