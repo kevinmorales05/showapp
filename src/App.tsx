@@ -1,4 +1,4 @@
-import React, {type PropsWithChildren} from 'react';
+import React, {useEffect, type PropsWithChildren} from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -8,13 +8,19 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
+import {requestUserPermission, NotificationListener} from './utils/notifications_helper'
 
 import NavContainer from './navigation/NavContainer';
 
 
 const App = () => {
+
+  useEffect(() => {
+     requestUserPermission();
+     NotificationListener();
+  }, [])
   
-  
+
   return (
     <><NavContainer /></>
   );
@@ -40,3 +46,5 @@ const styles = StyleSheet.create({
 });
 
 export default App;
+
+
