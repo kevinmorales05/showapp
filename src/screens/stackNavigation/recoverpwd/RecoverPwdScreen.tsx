@@ -1,12 +1,12 @@
-import React from 'react'
-import { View } from 'react-native'
+import React from 'react';
+import {Text, View} from 'react-native';
 
 const RecoverPwdScreen = () => {
   return (
     <View>
-        Recover Password Screen
+      <Text>Recover Password Screen</Text>
     </View>
-  )
-}
+  );
+};
 
-export default RecoverPwdScreen
+export default RecoverPwdScreen;

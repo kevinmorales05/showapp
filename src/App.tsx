@@ -13,6 +13,7 @@ import {requestUserPermission, NotificationListener} from './utils/notifications
 import NavContainer from './navigation/NavContainer';
 
 
+
 const App = () => {
 
   useEffect(() => {
@@ -22,7 +23,7 @@ const App = () => {
   
 
   return (
-    <><NavContainer /></>
+    <NavContainer /> 
   );
 };
 

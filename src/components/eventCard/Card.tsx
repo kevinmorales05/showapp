@@ -1,42 +1,41 @@
-import {ActionMatcherDescription} from '@reduxjs/toolkit/dist/createReducer';
-import {Image} from 'native-base';
+import {Image} from 'react-native';
 import React from 'react';
 import {StyleSheet, TouchableOpacity, View, Text} from 'react-native';
+import { event } from '../types/types';
+import { moderateScale, verticalScale } from '../../utils/scaleMetrics';
 
-const Card = ({cost, type, description, artist, city, date, img, id}: any) => {
+const Card = ({cost, type, description, artist, city, date, img, id}: event) => {
   return (
     <View style={styles.container} key={id}>
-      <View>
-        <Image source={{uri: img}} style={styles.img} />
+      <View style={styles.block}>
+        <Image source={{uri: img}} style={styles.img}  />
         {type === 'online' ? (
           <View style={styles.online}>
-            <Text>Online</Text>{' '}
+            <Text style={styles.textType}>Online</Text>
           </View>
         ) : (
           <View style={styles.onSite}>
-            {' '}
-            <Text>On Site</Text>
+            <Text style={styles.textType}>On Site</Text>
           </View>
         )}
-        <View>
-          <Text> {cost}</Text>
+        <View style={styles.costBlock}>
+          <Text style={styles.textType}> {cost} USD</Text>
         </View>
       </View>
-
       <View style={styles.description}>
-        <View>
+        <View style={styles.infoBlock}>
           <View>
-            <Text> {artist} </Text>
-            <Text> {city} </Text>
+            <Text style={styles.textArtist}> {artist} </Text>
+            <Text style={styles.textCity}> {city} </Text>
           </View>
           <View>
-            <Text>{date}</Text>
+            <Text style={styles.textDate}>{date}</Text>
           </View>
         </View>
-        <View>
-          <Text> {description}</Text>
+        <View style={styles.descriptionBlock}>
+          <Text  style={{color:'white'}}> {description}</Text>
           <TouchableOpacity style={styles.btn}>
-            <Text>See more</Text>
+            <Text style={styles.textType}>See more</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -51,22 +50,100 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     width: '90%',
-    justifyContent: 'center',
+    alignItems:'center',
+    justifyContent:'center',
+    marginBottom:20,
+    marginHorizontal:20,
+  },
+  block:{
+    width:'100%',
+    padding:0,
+    paddingBottom:0
   },
   img: {
-    width: '80%',
-    height: '80%',
+    width: '100%',
+    height: verticalScale(250),
   },
   description: {
     flexDirection: 'row',
+    alignItems:'center',
+    justifyContent:'center',
+    backgroundColor:'#2E364C',
+    width:'100%',
+    marginTop:0,
+    paddingTop:10,
+    paddingBottom:10,
+    borderBottomStartRadius:5,
+    borderBottomEndRadius:5
   },
   online: {
-    backgroundColor:'red'
+    backgroundColor:'black',
+    position:'absolute',
+    right: 0,
+    top:0,
+    padding:5,
+    borderRadius:4,
+    width: moderateScale(70),
+    alignItems:'center'
   },
   onSite: {
-    backgroundColor:'blue'
+    backgroundColor:'black',
+    position:'absolute',
+    right: 0,
+    top:0,
+    padding:5,
+    borderRadius:4,
+    width: moderateScale(70),
+    alignItems:'center',
+  },
+  textType:{
+    color:'white',
+    fontWeight:'bold'
+  },
+  costBlock:{
+    position:'absolute',
+    right:0,
+    bottom:0,
+    backgroundColor:'black',
+    width: moderateScale(70),
+    padding:5,
+    borderRadius:4,
   },
   btn: {
-    backgroundColor:'green'
+    backgroundColor:'black',
+    alignItems:'center',
+    width: moderateScale(90),
+    padding:5,
+    borderRadius:4,
+    margin:3,
+    alignSelf:'flex-end',
+   
   },
+  descriptionBlock:{
+    width:moderateScale(170),
+    justifyContent:'center',
+    alignItems:'center',
+    paddingTop:10
+  },
+  infoBlock:{
+    width:moderateScale(130),
+    padding:0,
+    flexDirection:'column',
+  },
+  textArtist:{
+    fontSize:20,
+    fontWeight:'bold',
+    color:'white'
+  },
+  textCity:{
+    fontSize:15,
+    fontWeight:'500',
+    color:'white'
+  },
+  textDate:{
+    fontSize:10,
+    fontWeight:'bold',
+    color:'white'
+
+  }
 });
