@@ -19,3 +19,11 @@ export interface event {
   img: string;
   id: string;
 }
+
+export interface category {
+  id: number;
+  name: string;
+  description: string;
+  icon: string;
+  iconType: string;
+}
