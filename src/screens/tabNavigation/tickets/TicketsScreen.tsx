@@ -63,11 +63,11 @@ const TicketsScreen = () => {
   ];
 
   return (
-    <View>
+    <View style={{backgroundColor:'#6C141B', height:'100%'}}>
       <ScrollView>
         <View>
           <Text style={styles.mainText}>Physical Events</Text>
-          <View>
+          <View style={styles.cardContainer}>
           {physical_events.map((event: ticketProps) => {
             return (
               <Ticket
@@ -89,7 +89,7 @@ const TicketsScreen = () => {
         </View>
         <View>
           <Text style={styles.mainText}>Online Events</Text>
-          <View>
+          <View style={styles.cardContainer}>
           {online_events.map((event: ticketProps) => {
             return (
               <Ticket
@@ -121,5 +121,12 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     marginTop: 20,
+    color:'white',
+    fontSize: 25
   },
+  cardContainer:{
+    justifyContent:'center',
+    alignItems:'center',
+    marginVertical:20
+  }
 });
