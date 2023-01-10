@@ -110,6 +110,7 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     justifyContent: 'center',
     backgroundColor: '#2E364C',
+    marginBottom:100
   },
   textInfo:{
     color:'white',

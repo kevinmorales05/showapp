@@ -27,3 +27,18 @@ export interface category {
   icon: string;
   iconType: string;
 }
+
+export interface ticketProps {
+  id: number;
+  name: string;
+  artist: string;
+  date: string;
+  hour: string;
+  status: 'Active' | 'in Progress' | 'Finalized';
+  img: string;
+  link: string | undefined;
+  type: 'online' | 'physical';
+  address: string | undefined;
+  city: string | undefined;
+
+}
