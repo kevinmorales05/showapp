@@ -42,3 +42,19 @@ export interface ticketProps {
   city: string | undefined;
 
 }
+
+export interface couponProps {
+  id: number;
+  code:string;
+  name: string;
+  description: string;
+  date: string;
+  hour:string;
+  status: 'Active' | 'in Progress' | 'Finalized';
+  img: string;
+  type: '2x1' | '3x2' | 'free' | number;
+  eventType: 'online' | 'physical';
+  quantity: number;
+  validUntil: string;
+
+}
