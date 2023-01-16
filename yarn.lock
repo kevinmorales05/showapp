@@ -7406,6 +7406,11 @@ react-native-qrcode-svg@^6.1.2:
     prop-types "^15.7.2"
     qrcode "^1.5.0"
 
+react-native-reanimated-carousel@^3.3.0:
+  version "3.3.0"
+  resolved "https://repo.huaweicloud.com/repository/npm/react-native-reanimated-carousel/-/react-native-reanimated-carousel-3.3.0.tgz#e71e9441ee6aaae401c5a023b27bf48a54565d16"
+  integrity sha512-rprUl+LqWoXyH/8OvHv+m9Kol2YORHEnz7tvRum+o4ciCUCcYnafQBbSqG44RMllOCqm3WOAcuEX5p8a7W3ZZw==
+
 react-native-reanimated@^2.13.0:
   version "2.13.0"
   resolved "https://repo.huaweicloud.com/repository/npm/react-native-reanimated/-/react-native-reanimated-2.13.0.tgz#d64c1386626822d4dc22094b4efe028ff2c49cc9"

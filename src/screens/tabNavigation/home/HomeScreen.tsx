@@ -14,7 +14,7 @@ import {moderateScale} from '../../../utils/scaleMetrics';
 import Category from '../../../components/category/Category';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
-function HomeScreen({eventsList, navigation}) {
+function HomeScreen({eventsList, navigation, route}) {
   console.log(eventsList);
 
   const categoriesList: Array<category> = [
@@ -115,6 +115,7 @@ function HomeScreen({eventsList, navigation}) {
               artist={event.artist}
               city={event.city}
               date={event.date}
+              nav={navigation}
             />
           );
         })}

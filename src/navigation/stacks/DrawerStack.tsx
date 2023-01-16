@@ -18,6 +18,7 @@ import MyInvoicesController from '../../screens/drawerNavigation/myInvoices/MyIn
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import DetailPhysicalEventController from '../../screens/drawerNavigation/detailPhysicalEvent/DetailPhysicalEventController';
 
 const Drawer = createDrawerNavigator();
 
@@ -79,6 +80,16 @@ const DrawerStack = () => {
           },
         }}
       />
+      <Drawer.Screen
+        name="My Detail Event"
+        component={DetailPhysicalEventController}
+        options={{
+          drawerIcon: ({color, size, focused}) => {
+            return <Entypo name="user" color={color} size={size} />;
+          }, headerShown:true
+        }}
+      />
+
     </Drawer.Navigator>
   );
 };

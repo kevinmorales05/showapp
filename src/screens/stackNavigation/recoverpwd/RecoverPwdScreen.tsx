@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
   },
   signUpText: {},
   input: {
-    height: verticalScale(30),
+    height: verticalScale(35),
     margin: 12,
     borderWidth: 1,
     padding: 10,

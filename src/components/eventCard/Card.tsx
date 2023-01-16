@@ -5,16 +5,7 @@ import {event} from '../types/types';
 import {moderateScale, verticalScale} from '../../utils/scaleMetrics';
 import analytics from '@react-native-firebase/analytics';
 
-const Card = ({
-  cost,
-  type,
-  description,
-  artist,
-  city,
-  date,
-  img,
-  id,
-}: event) => {
+const Card = ({cost, type, description, artist, city, date, img, id, nav,}) => {
   return (
     <View style={styles.container} key={id}>
       <View style={styles.block}>
@@ -49,16 +40,25 @@ const Card = ({
             onPress={async () => {
               console.log(`hello baby! this is my id: ${id}`);
               try {
-                await analytics().logEvent("openevents_kev",{
+                await analytics().logEvent('openevents_kev', {
                   id: id,
                   name: artist,
                   description: description,
                 });
-                console.log("succesfully added to firebase!")
+                console.log('succesfully added to firebase!');
+                nav.navigate('My Detail Event', {
+                  id,
+                  cost,
+                  type,
+                  description,
+                  artist,
+                  city,
+                  date,
+                  img,
+                });
               } catch (error) {
-                console.log(error)
+                console.log(error);
               }
-              
             }}>
             <Text style={styles.textType}>See more</Text>
           </TouchableOpacity>
