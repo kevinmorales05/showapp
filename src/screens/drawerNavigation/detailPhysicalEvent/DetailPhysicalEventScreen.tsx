@@ -38,14 +38,15 @@ const DetailPhysicalEventScreen = ({route, navigation}) => {
   return (
     <SafeAreaView key={id} style={{flexDirection: 'column', backgroundColor:'#2E364C'}}>
       <View style={{}}>
+      <Text style={{color:'white', textAlign:'center', fontSize:40, fontWeight:'bold'}}>{artist}</Text>
         <Carousel
-        //   loop
+          loop
           width={width}
           height={width}
           autoPlay={true}
           data={detailEvent.photos}
-          scrollAnimationDuration={2000}
-          onSnapToItem={index => console.log('current index:', index)}
+          scrollAnimationDuration={2500}
+          //onSnapToItem={index => console.log('current index:', index)}
           renderItem={({index,item}) => (
             <View
               style={{
