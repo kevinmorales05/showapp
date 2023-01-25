@@ -86,7 +86,7 @@ const DrawerStack = () => {
         options={{
           drawerIcon: ({color, size, focused}) => {
             return <Entypo name="user" color={color} size={size} />;
-          }, headerShown:true
+          }, headerShown:false
         }}
       />
 

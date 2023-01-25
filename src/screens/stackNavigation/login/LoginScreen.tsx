@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import {moderateScale, verticalScale} from '../../../utils/scaleMetrics';
 import {Formik, validateYupSchema} from 'formik';
+import Analytics from 'appcenter-analytics'
 
 const LoginScreen = ({navigation}) => {
   return (
@@ -54,7 +55,11 @@ const LoginScreen = ({navigation}) => {
         onPress={() => navigation.navigate('Recover Password')}>
         <Text style={styles.btnText}>I forget my password</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate('Sign Up')}>
+      <TouchableOpacity onPress={() => {
+        navigation.navigate('Sign Up');
+        Analytics.trackEvent('open_signUp');
+
+      }}>
         <Text style={styles.btnText}>Sign up</Text>
       </TouchableOpacity>
     </SafeAreaView>

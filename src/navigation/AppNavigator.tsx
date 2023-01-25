@@ -9,7 +9,7 @@ import DrawerStack from './stacks/DrawerStack';
 const Stack = createNativeStackNavigator<any>();
 
 const AppNavigator: any = () => {
-  const [isLogged, setisLogged] = useState(true);
+  const [isLogged, setisLogged] = useState(false);
   /**
    * Manages stack navigation based on logged user.
    */
