@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<!--
-   AppCenter-Config.plist
-   showapp
-
-   Created by Kevin Morales Estrella on 1/16/23.
-   Copyright (c) 2023 ___ORGANIZATIONNAME___. All rights reserved.
--->
 <plist version="1.0">
-  <dict>
-      <key>AppSecret</key>
-      <string>705b2aa7-7813-4c97-a387-cad33701dcd0</string>
-      </dict>
+<dict>
+	<key>AppSecret</key>
+	<string>7c4138d0-7ef3-491c-89cd-1c13cf94f56d</string>
+</dict>
 </plist>
