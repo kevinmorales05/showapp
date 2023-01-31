@@ -2,10 +2,10 @@ import React from 'react'
 import { View } from 'react-native'
 import RecoverPwdScreen from './RecoverPwdScreen'
 
-const RecoverPwdController = () => {
+const RecoverPwdController = ({navigation}) => {
   return (
     <View>
-        <RecoverPwdScreen />
+        <RecoverPwdScreen navigation={navigation} />
     </View>
   )
 }

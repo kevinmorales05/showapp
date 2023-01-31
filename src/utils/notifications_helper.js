@@ -51,7 +51,7 @@ const NotificationListener = () => {
           remoteMessage.notification,
         );
       }
-      messaging().onMessage(async remoteMessage => {
+  messaging().onMessage(async remoteMessage => {
         console.log('Notification on forgraound state........', remoteMessage);
       });
     });

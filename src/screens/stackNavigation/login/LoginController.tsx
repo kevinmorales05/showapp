@@ -2,10 +2,10 @@ import React from 'react'
 import { View } from 'react-native'
 import LoginScreen from './LoginScreen'
 
-const LoginController = () => {
+const LoginController = ({navigation}) => {
   return (
     <View>
-        <LoginScreen />
+        <LoginScreen navigation={navigation} />
     </View>
   )
 }

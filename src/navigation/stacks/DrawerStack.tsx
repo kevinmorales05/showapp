@@ -8,7 +8,7 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import {createDrawerNavigator} from '@react-navigation/drawer';
 import TabStack from './TabStack';
 import OnlineEventsController from '../../screens/drawerNavigation/onlineEvents/OnlineEventsController';
 import PhysicalEventScreen from '../../screens/drawerNavigation/physicalEvents/PhysicalEventScreen';
@@ -17,75 +17,80 @@ import MyInvoicesController from '../../screens/drawerNavigation/myInvoices/MyIn
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import DetailPhysicalEventController from '../../screens/drawerNavigation/detailPhysicalEvent/DetailPhysicalEventController';
 
 const Drawer = createDrawerNavigator();
 
-
-
 const DrawerStack = () => {
-  
   return (
-     <Drawer.Navigator
-     screenOptions={{
-      drawerStyle: {
-        backgroundColor: '#c6cbef',
-        width: 240,
-      },
-      headerShown: false
+    <Drawer.Navigator
+      screenOptions={{
+        drawerStyle: {
+          backgroundColor: '#c6cbef',
+          width: 240,
+        },
+        headerShown: false,
+      }}>
+      <Drawer.Screen
+        name="Home"
+        component={TabStack}
+        options={{
+          drawerIcon: ({color, size, focused}) => {
+            return <Entypo name="home" color={color} size={size} />;
+          },
+        }}
+      />
+      <Drawer.Screen
+        name="My Online Events"
+        component={OnlineEventsController}
+        options={{
+          drawerIcon: ({color, size, focused}) => {
+            return (
+              <MaterialIcons name="book-online" color={color} size={size} />
+            );
+          },
+        }}
+      />
+      <Drawer.Screen
+        name="My Life Events"
+        component={PhysicalEventScreen}
+        options={{
+          drawerIcon: ({color, size, focused}) => {
+            return <MaterialIcons name="event" color={color} size={size} />;
+          },
+        }}
+      />
+      <Drawer.Screen
+        name="My Orders"
+        component={MyInvoicesController}
+        options={{
+          drawerIcon: ({color, size, focused}) => {
+            return <Entypo name="wallet" color={color} size={size} />;
+          },
+        }}
+      />
 
-    }
-   
-  }
-  
-     >
-        <Drawer.Screen name="Home" component={TabStack} 
-        options={
-          {
-            drawerIcon: ({color, size,focused})=> {
-              return <Entypo name="home" color={color} size={size} />;
-            }
-          }
-        }
-        />
-        <Drawer.Screen name="My Online Events" component={OnlineEventsController} 
-        options={
-          {
-            drawerIcon: ({color, size,focused})=> {
-              return <MaterialIcons name="book-online" color={color} size={size} />;
-            }
-          }
-        }
-        />
-        <Drawer.Screen name="My Life Events" component={PhysicalEventScreen} 
-        options={
-          {
-            drawerIcon: ({color, size,focused})=> {
-              return <MaterialIcons name="event" color={color} size={size} />;
-            }
-          }
-        }
-        />
-        <Drawer.Screen name="My Orders" component={MyInvoicesController}
-        options={
-          {
-            drawerIcon: ({color, size,focused})=> {
-              return <Entypo name="wallet" color={color} size={size} />;
-            }
-          }
-        }
-        />
+      <Drawer.Screen
+        name="My Account"
+        component={MyAccountController}
+        options={{
+          drawerIcon: ({color, size, focused}) => {
+            return <Entypo name="user" color={color} size={size} />;
+          },
+        }}
+      />
+      <Drawer.Screen
+        name="My Detail Event"
+        component={DetailPhysicalEventController}
+        options={{
+          drawerIcon: ({color, size, focused}) => {
+            return <Entypo name="user" color={color} size={size} />;
+          }, headerShown:false
+        }}
+      />
 
-        <Drawer.Screen name="My Account" component={MyAccountController} 
-        options={
-          {
-            drawerIcon: ({color, size,focused})=> {
-              return <Entypo name="user" color={color} size={size} />;
-            }
-          }
-        }
-        />
-     </Drawer.Navigator>
+    </Drawer.Navigator>
   );
 };
 

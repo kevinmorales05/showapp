@@ -1,12 +1,19 @@
-import React from 'react'
-import { Text, View } from 'react-native'
+import React, { useEffect } from 'react';
+import {SafeAreaView, Text, TouchableOpacity, View} from 'react-native';
 import MyAccountScreen from './MyAccountScreen'
+import { DrawerScreenProps } from '@react-navigation/drawer';
+import Entypo from 'react-native-vector-icons/Entypo';
 
-const MyAccountController = () => {
+interface Props extends DrawerScreenProps<any, any>{};
+
+
+const MyAccountController = ({navigation}:Props) => {
+
+  
   return (
-    <View>
+    <SafeAreaView>
         <MyAccountScreen />
-    </View>
+    </SafeAreaView>
   )
 }
 

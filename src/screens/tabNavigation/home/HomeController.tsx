@@ -1,10 +1,17 @@
-import React from 'react';
-import {SafeAreaView, Text, View} from 'react-native';
+import { DrawerScreenProps } from '@react-navigation/drawer';
+import React, { useEffect } from 'react';
+import {SafeAreaView, Text, TouchableOpacity, View} from 'react-native';
+import {event} from '../../../components/types/types';
 import HomeScreen from './HomeScreen';
+import Entypo from 'react-native-vector-icons/Entypo';
 
-const HomeController = () => {
 
-  const exampleCards = [
+interface Props extends DrawerScreenProps<any, any>{};
+
+const HomeController = ({navigation}:Props) => {
+
+
+  const exampleCards: Array<event> = [
     {
       cost: 45,
       type: 'online',
@@ -18,7 +25,7 @@ const HomeController = () => {
     {
       cost: 120,
       type: 'onSite',
-      description: 'The most important event in the year in your city',
+      description: 'The most important event in the year in your "city"',
       artist: 'Bad Bunny',
       city: 'Quito',
       date: 'December 31st',
@@ -26,10 +33,18 @@ const HomeController = () => {
       id: '2',
     },
   ];
+  
+  useEffect(() => {
+    navigation.setOptions({
+      headerLeft:() =>  <TouchableOpacity onPress={()=> {navigation.toggleDrawer()} }>
+        <Entypo name="menu" style={{marginLeft:10}} color={'black'} size={30} />
+      </TouchableOpacity>
+    });
+  }, [])
 
   return (
     <SafeAreaView>
-        <HomeScreen eventsList={exampleCards} /> 
+      <HomeScreen eventsList={exampleCards} navigation={navigation} />
     </SafeAreaView>
   );
 };
