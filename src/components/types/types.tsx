@@ -58,3 +58,10 @@ export interface couponProps {
   validUntil: string;
 
 }
+export  interface PropsUser {
+  name: string;
+  img: string;
+  email: string;
+  birthday: string;
+  telephone: string;
+}

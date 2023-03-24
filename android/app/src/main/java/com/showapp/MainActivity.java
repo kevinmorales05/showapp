@@ -1,4 +1,4 @@
-package com.showapp;
+package com.twoshowapp;
 
 import android.os.Bundle;
 import com.facebook.react.ReactActivity;
