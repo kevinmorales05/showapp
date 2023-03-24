@@ -1,15 +1,12 @@
 import React, {useState} from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {View} from 'native-base';
 import HomeStack from './stacks/DrawerStack';
 import AuthStack from './stacks/AuthStack';
-import TabStack from './stacks/TabStack';
-import DrawerStack from './stacks/DrawerStack';
 
 const Stack = createNativeStackNavigator<any>();
 
 const AppNavigator: any = () => {
-  const [isLogged, setisLogged] = useState(false);
+  const [isLogged, setisLogged] = useState(true);
   /**
    * Manages stack navigation based on logged user.
    */
