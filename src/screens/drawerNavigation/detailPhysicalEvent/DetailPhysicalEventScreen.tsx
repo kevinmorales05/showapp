@@ -14,7 +14,7 @@ import Carousel from 'react-native-reanimated-carousel';
 const DetailPhysicalEventScreen = ({route, navigation}) => {
   
   const detailEvent = {
-    "id":"",
+    "id":"1",
     "photos":[{
         "id":1,
         "description":"kard and its members",
