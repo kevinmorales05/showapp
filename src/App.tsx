@@ -1,51 +1,19 @@
 import React, {useEffect, type PropsWithChildren} from 'react';
+
 import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
-import {requestUserPermission, NotificationListener} from './utils/notifications_helper'
+  requestUserPermission,
+  NotificationListener,
+} from './utils/notifications_helper';
 
 import NavContainer from './navigation/NavContainer';
 
-
-
 const App = () => {
-
   useEffect(() => {
-     requestUserPermission();
-     NotificationListener();
-  }, [])
-  
+    requestUserPermission();
+    NotificationListener();
+  }, []);
 
-  return (
-    <NavContainer /> 
-  );
+  return <NavContainer />;
 };
 
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
-
 export default App;
-
-
