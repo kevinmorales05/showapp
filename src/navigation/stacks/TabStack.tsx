@@ -56,6 +56,7 @@ const TabStack = () => {
           ),
         }}
       />
+      
     </Tab.Navigator>
   );
 };

@@ -9,11 +9,19 @@ import {
   View,
 } from 'react-native';
 import {verticalScale, moderateScale} from '../../../utils/scaleMetrics';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 
-const MyAccountScreen = ({user}) => {
+const MyAccountScreen = ({user, navigation, route}) => {
  
   return (
     <SafeAreaView style={styles.container}>
+      <TouchableOpacity
+          style={{alignSelf:'flex-end', marginRight:20}}
+          onPress={() =>
+            navigation.navigate('Home')
+          }>
+          <AntDesign name="closecircleo" color={'black'} size={30} />
+        </TouchableOpacity>
       <Text style={styles.mainText}>My Account</Text>
       <Text>{user.name}</Text>
       <View style={styles.imgBlock}>

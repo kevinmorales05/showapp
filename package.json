@@ -21,7 +21,7 @@
     "@react-navigation/native": "^6.1.1",
     "@react-navigation/native-stack": "^6.9.7",
     "@react-navigation/stack": "^6.3.10",
-    "@reduxjs/toolkit": "^1.9.1",
+    "@reduxjs/toolkit": "^1.9.3",
     "appcenter": "^4.4.5",
     "appcenter-analytics": "^4.4.5",
     "appcenter-crashes": "^4.4.5",
@@ -40,6 +40,7 @@
     "react-native-screens": "^3.18.2",
     "react-native-svg": "12.1.1",
     "react-native-vector-icons": "^9.2.0",
+    "react-redux": "^8.0.5",
     "yup": "^0.32.11"
   },
   "devDependencies": {
