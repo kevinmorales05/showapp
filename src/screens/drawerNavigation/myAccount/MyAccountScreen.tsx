@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import {verticalScale, moderateScale} from '../../../utils/scaleMetrics';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import { authServices } from '../../../services';
+import {authServices} from '../../../services';
 
 const MyAccountScreen = ({user, navigation, route}) => {
   return (
@@ -56,11 +56,12 @@ const MyAccountScreen = ({user, navigation, route}) => {
           <Text style={styles.text}>Update</Text>
         </TouchableOpacity>
       </View>
-      <TouchableOpacity style={styles.btnBlock}  onPress={() => authServices.logOut()}>
+      <TouchableOpacity
+        style={styles.btnBlock}
+        onPress={() => authServices.logOut()}>
         <Text style={styles.text}>Log out</Text>
       </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.btnBlock}>
+      <TouchableOpacity style={styles.btnBlock}>
         <Text style={styles.text}>Delete account</Text>
       </TouchableOpacity>
     </SafeAreaView>

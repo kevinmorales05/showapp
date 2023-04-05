@@ -46,6 +46,22 @@ async function loginWithFirebase(email: string, password: string) {
 }
 
 async function forgotPassword(email: string) {
+//   const actionCodeSettings = {
+//     // URL you want to redirect back to. The domain (www.example.com) for this
+//     // URL must be whitelisted in the Firebase Console.
+//     url: 'showapp-fbe93.web.app',
+//     // This must be true.
+//     handleCodeInApp: true,
+//     iOS: {
+//       bundleId: 'org.bessel.2show',
+//     },
+//     android: {
+//       packageName: 'com.twoshowapp',
+//       installApp: true,
+//       minimumVersion: '12',
+//     },
+//   };
+//add actioncodesetting to sendpasswordreset email in order to receive a code
   auth()
     .sendPasswordResetEmail(email)
     .then(response => {
@@ -91,21 +107,6 @@ async function resetPassword(code: string, newpwd: string) {
       console.error(error);
     });
 }
-/*
-
-
-
-
-@error — auth/weak-password Thrown if the new password is not strong enough.
-
-@param code — The code from the password reset email.
-
-@param newPassword — The new password.
-
-
-
-
-*/
 
 async function logOut() {
   auth()
