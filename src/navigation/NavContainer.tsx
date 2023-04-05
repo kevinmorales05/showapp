@@ -19,11 +19,11 @@ const NavContainer: React.FC = () => {
         ref={navigationRef}
         linking={linking}
         onReady={() => {
-          routeNameRef.current = navigationRef.current.getCurrentRoute().name;
+          routeNameRef.current = navigationRef.current.getCurrentRoute();
         }}
         onStateChange={async () => {
           const previousRouteName = routeNameRef.current;
-          const currentRouteName = navigationRef.current.getCurrentRoute().name;
+          const currentRouteName = navigationRef.current.getCurrentRoute();
 
           if (previousRouteName !== currentRouteName) {
             try {

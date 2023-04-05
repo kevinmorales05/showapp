@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import { moderateScale, verticalScale } from '../../../utils/scaleMetrics';
 import {Formik, validateYupSchema} from 'formik';
+import { authServices } from '../../../services';
 
 const SignUpScreen = ({navigation}) => {
   return (
@@ -21,7 +22,11 @@ const SignUpScreen = ({navigation}) => {
       <Text style={styles.loginText}>Sign Up</Text>
       <Formik
         initialValues={{email: '', password: '', age:'', name:''}}
-        onSubmit={values => console.log(values)}>
+        onSubmit={values => {
+          console.log(values);
+          authServices.createUserWithFirebase(values.email, values.password);
+        
+        }}>
         {({handleChange, handleBlur, handleSubmit, values}) => (
           <View>
             <TextInput
