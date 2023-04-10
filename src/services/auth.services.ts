@@ -1,4 +1,5 @@
 import auth from '@react-native-firebase/auth';
+import {setAuthInitialState} from '../rtk';
 
 async function createUserWithFirebase(email: string, password: string) {
   auth()
@@ -25,6 +26,15 @@ async function loginWithFirebase(email: string, password: string) {
     .then(response => {
       console.log('User account created & signed in!');
       console.log('Sign in successfull! ', response);
+      setAuthInitialState({
+        name: '',
+        lastname: '',
+        email: response.user.email,
+        firebaseID: response.user.uid,
+        isLogged: true,
+        firebaseToken: '',
+        image: '',
+      });
     })
     .catch(error => {
       if (error.code === 'auth/invalid-email') {
@@ -46,22 +56,22 @@ async function loginWithFirebase(email: string, password: string) {
 }
 
 async function forgotPassword(email: string) {
-//   const actionCodeSettings = {
-//     // URL you want to redirect back to. The domain (www.example.com) for this
-//     // URL must be whitelisted in the Firebase Console.
-//     url: 'showapp-fbe93.web.app',
-//     // This must be true.
-//     handleCodeInApp: true,
-//     iOS: {
-//       bundleId: 'org.bessel.2show',
-//     },
-//     android: {
-//       packageName: 'com.twoshowapp',
-//       installApp: true,
-//       minimumVersion: '12',
-//     },
-//   };
-//add actioncodesetting to sendpasswordreset email in order to receive a code
+  //   const actionCodeSettings = {
+  //     // URL you want to redirect back to. The domain (www.example.com) for this
+  //     // URL must be whitelisted in the Firebase Console.
+  //     url: 'showapp-fbe93.web.app',
+  //     // This must be true.
+  //     handleCodeInApp: true,
+  //     iOS: {
+  //       bundleId: 'org.bessel.2show',
+  //     },
+  //     android: {
+  //       packageName: 'com.twoshowapp',
+  //       installApp: true,
+  //       minimumVersion: '12',
+  //     },
+  //   };
+  //add actioncodesetting to sendpasswordreset email in order to receive a code
   auth()
     .sendPasswordResetEmail(email)
     .then(response => {
