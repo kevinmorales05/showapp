@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import {
   Text,
   SafeAreaView,
@@ -8,8 +8,9 @@ import {
   TextInput,
   View,
 } from 'react-native';
-import { moderateScale, verticalScale } from '../../../utils/scaleMetrics';
+import {moderateScale, verticalScale} from '../../../utils/scaleMetrics';
 import {Formik, validateYupSchema} from 'formik';
+import {authServices} from '../../../services';
 
 const SignUpScreen = ({navigation}) => {
   return (
@@ -20,8 +21,11 @@ const SignUpScreen = ({navigation}) => {
       />
       <Text style={styles.loginText}>Sign Up</Text>
       <Formik
-        initialValues={{email: '', password: '', age:'', name:''}}
-        onSubmit={values => console.log(values)}>
+        initialValues={{email: '', password: '', age: '', name: ''}}
+        onSubmit={values => {
+          console.log(values);
+          authServices.createUserWithFirebase(values.email, values.password);
+        }}>
         {({handleChange, handleBlur, handleSubmit, values}) => (
           <View>
             <TextInput
@@ -57,7 +61,7 @@ const SignUpScreen = ({navigation}) => {
               value={values.age}
               onChangeText={handleChange('age')}
               onBlur={handleBlur('age')}
-              keyboardType='number-pad'
+              keyboardType="number-pad"
             />
             <TouchableOpacity style={styles.btnLogin} onPress={handleSubmit}>
               <Text style={styles.btnText}>Sign Up</Text>
@@ -66,12 +70,12 @@ const SignUpScreen = ({navigation}) => {
         )}
       </Formik>
 
-      <TouchableOpacity onPress={()=> navigation.navigate('Login')}>
+      <TouchableOpacity onPress={() => navigation.navigate('Login')}>
         <Text style={styles.btnText}>Login</Text>
       </TouchableOpacity>
     </SafeAreaView>
-  )
-}
+  );
+};
 
 export default SignUpScreen;
 
@@ -86,13 +90,15 @@ const styles = StyleSheet.create({
     backgroundColor: '#6C141B',
   },
   btnLogin: {
-    alignSelf:'center',
-    backgroundColor:'#2E364C',
-    padding:10,
-    width:moderateScale(140),
-    alignItems:'center',
-    borderRadius:10, borderColor:'white', borderWidth:1,
-    marginBottom:verticalScale(20)
+    alignSelf: 'center',
+    backgroundColor: '#2E364C',
+    padding: 10,
+    width: moderateScale(140),
+    alignItems: 'center',
+    borderRadius: 10,
+    borderColor: 'white',
+    borderWidth: 1,
+    marginBottom: verticalScale(20),
   },
   btnSignUp: {},
   img: {
@@ -117,8 +123,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderRadius: 10,
   },
-  btnText:{
-    color:'white',
-    fontSize:18
-  }
+  btnText: {
+    color: 'white',
+    fontSize: 18,
+  },
 });

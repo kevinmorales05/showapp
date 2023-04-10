@@ -12,6 +12,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import SignUpController from '../../screens/stackNavigation/signup/SignUpController';
 import LoginController from '../../screens/stackNavigation/login/LoginController';
 import RecoverPwdController from '../../screens/stackNavigation/recoverpwd/RecoverPwdController';
+import ResetPwdController from '../../screens/stackNavigation/resetpwd/ResetPwdController';
 
 const Stack = createNativeStackNavigator();
 
@@ -35,6 +36,13 @@ const AuthStack = () => {
       <Stack.Screen
         name="Recover Password"
         component={RecoverPwdController}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="Reset Password"
+        component={ResetPwdController}
         options={{
           headerShown: false,
         }}

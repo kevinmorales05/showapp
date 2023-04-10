@@ -18,19 +18,17 @@ async function requestUserPermission() {
 async function getCFMToken() {
   let fcmtoken = await AsyncStorage.getItem('fcmtoken');
   console.log(fcmtoken, 'old token');
-  if(!fcmtoken){
+  if (!fcmtoken) {
     try {
       const fcmtoken = await messaging().getToken();
       if (fcmtoken) {
-        console.log("new token ", fcmtoken)
+        console.log('new token ', fcmtoken);
         await AsyncStorage.setItem('fcmtoken', fcmtoken);
-      } 
+      }
     } catch (error) {
       console.log(error, 'error in fcmtoken');
     }
-
   }
-  
 }
 
 const NotificationListener = () => {
@@ -51,7 +49,7 @@ const NotificationListener = () => {
           remoteMessage.notification,
         );
       }
-  messaging().onMessage(async remoteMessage => {
+      messaging().onMessage(async remoteMessage => {
         console.log('Notification on forgraound state........', remoteMessage);
       });
     });

@@ -1,18 +1,19 @@
 import React from 'react';
 import {
+  SafeAreaView,
   View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
   Dimensions,
+  StyleSheet,
   Image,
+  TouchableOpacity,
+  Text,
 } from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-context';
 import {moderateScale, verticalScale} from '../../../utils/scaleMetrics';
 import Carousel from 'react-native-reanimated-carousel';
+
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
-const DetailPhysicalEventScreen = ({route, navigation}) => {
+const BuyEventWithScreen = ({route, navigation}) => {
   const detailEvent = {
     id: '1',
     photos: [
@@ -35,31 +36,36 @@ const DetailPhysicalEventScreen = ({route, navigation}) => {
       },
     ],
   };
-
   /* 2. Get the param */
   const {id, cost, date, description, artist, city} = route.params;
   const width = Dimensions.get('window').width;
   return (
-    <SafeAreaView
-      key={id}
-      style={{flexDirection: 'column', backgroundColor: '#2E364C'}}>
-      <View style={{}}>
-      <TouchableOpacity
+    <SafeAreaView>
+      <View>
+        <TouchableOpacity
           style={{alignItems: 'flex-end', marginRight: 20}}
           onPress={() =>
-            navigation.navigate('Home')
+            navigation.navigate('My Detail Event', {
+              id,
+              cost,
+              date,
+              description,
+              artist,
+              city,
+            })
           }>
-          <AntDesign name="closecircleo" color={'white'} size={25} />
+          <AntDesign name="closecircleo" color={'black'} size={25} />
         </TouchableOpacity>
         <Text
           style={{
-            color: 'white',
+            color: 'black',
             textAlign: 'center',
             fontSize: 40,
             fontWeight: 'bold',
           }}>
           {artist}
         </Text>
+
         <Carousel
           loop
           width={width}
@@ -79,51 +85,66 @@ const DetailPhysicalEventScreen = ({route, navigation}) => {
             </View>
           )}
         />
-      </View>
-      <View
-        style={{
-          alignSelf: 'center',
-          width: '90%',
-          padding: 10,
-          justifyContent: 'center',
-          alignItems: 'center',
-          marginBottom: moderateScale(50),
-          backgroundColor: '#6C141B',
-          borderRadius: 10,
-          marginVertical: verticalScale(10),
-          borderColor: 'white',
-          borderWidth: 1,
-        }}>
-        <View>
-          <Text style={styles.textArtist}>{artist}</Text>
-          <Text style={styles.description}>{description}</Text>
-          <Text style={styles.textDate}>{date}</Text>
-          <Text style={styles.textCity}>{city}</Text>
+        <View
+          style={{
+            alignSelf: 'center',
+            width: '90%',
+            padding: 10,
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginBottom: moderateScale(50),
+            backgroundColor: '#6C141B',
+            borderRadius: 10,
+            marginVertical: verticalScale(10),
+            borderColor: 'white',
+            borderWidth: 1,
+          }}>
+          <View>
+            <Text style={styles.textArtist}>{artist}</Text>
+            <Text style={styles.description}>{description}</Text>
+            <Text style={styles.textDate}>{date}</Text>
+            <Text style={styles.textCity}>{city}</Text>
+          </View>
+          <View>
+            <Text style={styles.textType}> {cost} USD </Text>
+          </View>
         </View>
-        <View>
-          <Text style={styles.textType}> {cost} USD </Text>
-        </View>
+        <TouchableOpacity
+          style={styles.btn}
+          onPress={async () => {
+            console.log(`Go to Pay Pal: ${id}`);
+            navigation.navigate('Buy event with', {
+              id,
+              cost,
+              date,
+              description,
+              artist,
+              city,
+            });
+          }}>
+          <Text style={styles.textType}> Pay with PayPal</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.btn}
+          onPress={async () => {
+            console.log(`Go to Pay Pal: ${id}`);
+            navigation.navigate('Buy event with', {
+              id,
+              cost,
+              date,
+              description,
+              artist,
+              city,
+            });
+          }}>
+          <Text style={styles.textType}> Pay with Banck Transfer</Text>
+        </TouchableOpacity>
       </View>
-      <TouchableOpacity
-        style={styles.btn}
-        onPress={async () => {
-          console.log(`Go to Pay Pal: ${id}`);
-          navigation.navigate('Buy event with', {
-            id,
-            cost,
-            date,
-            description,
-            artist,
-            city,
-          });
-        }}>
-        <Text style={styles.textType}> Buy now</Text>
-      </TouchableOpacity>
     </SafeAreaView>
   );
 };
 
-export default DetailPhysicalEventScreen;
+export default BuyEventWithScreen;
 
 const styles = StyleSheet.create({
   container: {

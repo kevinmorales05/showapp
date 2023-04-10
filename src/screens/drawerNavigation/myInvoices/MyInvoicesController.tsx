@@ -1,13 +1,15 @@
 import React from 'react'
 import { SafeAreaView } from 'react-native'
-import MyInvoicesScreen from './MyInvoicesScreen'
+import MyInvoicesScreen from './MyInvoicesScreen';
+interface Props extends DrawerScreenProps<any, any>{};
 
-const MyInvoicesController = () => {
+
+const MyInvoicesController = ({navigation, route}: Props) => {
   return (
     <SafeAreaView>
-        <MyInvoicesScreen />
+        <MyInvoicesScreen navigation={navigation} route={route} />
     </SafeAreaView>
   )
 }
 
-export default MyInvoicesController
+export default MyInvoicesController;

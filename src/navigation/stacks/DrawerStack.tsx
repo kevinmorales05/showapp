@@ -19,6 +19,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import DetailPhysicalEventController from '../../screens/drawerNavigation/detailPhysicalEvent/DetailPhysicalEventController';
+import BuyEventWithController from '../../screens/drawerNavigation/buyEventWith/BuyEventWithController';
 
 const Drawer = createDrawerNavigator();
 
@@ -86,10 +87,20 @@ const DrawerStack = () => {
         options={{
           drawerIcon: ({color, size, focused}) => {
             return <Entypo name="user" color={color} size={size} />;
-          }, headerShown:false
+          },
+          drawerItemStyle: {height: 0},
         }}
       />
-
+      <Drawer.Screen
+        name="Buy event with"
+        component={BuyEventWithController}
+        options={{
+          drawerIcon: ({color, size, focused}) => {
+            return <Entypo name="user" color={color} size={size} />;
+          },
+          drawerItemStyle: {height: 0},
+        }}
+      />
     </Drawer.Navigator>
   );
 };

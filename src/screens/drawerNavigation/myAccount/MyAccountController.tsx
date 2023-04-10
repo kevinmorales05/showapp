@@ -8,7 +8,7 @@ import { PropsUser } from '../../../components/types/types';
 interface Props extends DrawerScreenProps<any, any>{};
 
 
-const MyAccountController = ({navigation}:Props) => {
+const MyAccountController = ({navigation, route}:Props) => {
 
    
   const userData: PropsUser = {
@@ -20,9 +20,9 @@ const MyAccountController = ({navigation}:Props) => {
   };
   return (
     <SafeAreaView>
-        <MyAccountScreen user={userData} />
+        <MyAccountScreen user={userData} navigation={navigation} route={route} />
     </SafeAreaView>
   )
 }
 
-export default MyAccountController
+export default MyAccountController;
