@@ -1,10 +1,11 @@
 import React from 'react'
-import { Text, View } from 'react-native'
+import { View } from 'react-native'
+import MyEventsScreen from './MyEventsScreen'
 
 const MyEventsController = () => {
   return (
     <View>
-        <Text> My events</Text>
+        <MyEventsScreen />
     </View>
   )
 }
