@@ -7,20 +7,19 @@ import {
   Image,
   TextInput,
   View,
-  Alert,
 } from 'react-native';
 import {moderateScale, verticalScale} from '../../../utils/scaleMetrics';
 import {Formik, validateYupSchema} from 'formik';
-import {authServices} from '../../../services';
+import {authServices} from '../../../services/auth.services';
 
-const RecoverPwdScreen = ({navigation}) => {
+const ResetPwdScreen = ({navigation, route}) => {
   return (
     <SafeAreaView style={styles.loginBlock}>
       <Image
         source={require('../../../assets/images/whitelogo.png')}
         style={styles.img}
       />
-      <Text style={styles.loginText}>Password Recovery</Text>
+      <Text style={styles.loginText}>Password Resety</Text>
       <Text
         style={{
           color: 'white',
@@ -31,25 +30,33 @@ const RecoverPwdScreen = ({navigation}) => {
         Write your password in order to send you a link yo reset your password
       </Text>
       <Formik
-        initialValues={{email: ''}}
+        initialValues={{password: '', code: ''}}
         onSubmit={values => {
           console.log(values);
-          authServices.forgotPassword(values.email);
-          Alert.alert(
-            'We have send an email with a link to reset your password!',
-          );
-          navigation.navigate('Login');
+          authServices.resetPassword(values.code, values.password);
+          navigation.navigate('Reset Password');
         }}>
         {({handleChange, handleBlur, handleSubmit, values}) => (
           <View>
             <TextInput
-              placeholder="Write your email"
+              placeholder="Write your received code"
               placeholderTextColor={'black'}
               style={styles.input}
-              value={values.email}
-              onChangeText={handleChange('email')}
-              onBlur={handleBlur('email')}
+              value={values.code}
+              onChangeText={handleChange('code')}
+              onBlur={handleBlur('code')}
             />
+            <TextInput
+              placeholder="Write your new password"
+              placeholderTextColor={'black'}
+              style={styles.input}
+              value={values.password}
+              onChangeText={handleChange('password')}
+              onBlur={handleBlur('password')}
+              textContentType="password"
+              secureTextEntry={true}
+            />
+
             <TouchableOpacity style={styles.btnLogin} onPress={handleSubmit}>
               <Text style={styles.btnText}>Send email</Text>
             </TouchableOpacity>
@@ -64,7 +71,7 @@ const RecoverPwdScreen = ({navigation}) => {
   );
 };
 
-export default RecoverPwdScreen;
+export default ResetPwdScreen;
 
 const styles = StyleSheet.create({
   loginBlock: {
