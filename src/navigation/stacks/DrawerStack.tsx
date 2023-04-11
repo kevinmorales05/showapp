@@ -20,6 +20,7 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import DetailPhysicalEventController from '../../screens/drawerNavigation/detailPhysicalEvent/DetailPhysicalEventController';
 import BuyEventWithController from '../../screens/drawerNavigation/buyEventWith/BuyEventWithController';
+import ChooseTicketController from '../../screens/drawerNavigation/chooseTicket/ChooseTicketController';
 
 const Drawer = createDrawerNavigator();
 
@@ -84,6 +85,16 @@ const DrawerStack = () => {
       <Drawer.Screen
         name="My Detail Event"
         component={DetailPhysicalEventController}
+        options={{
+          drawerIcon: ({color, size, focused}) => {
+            return <Entypo name="user" color={color} size={size} />;
+          },
+          drawerItemStyle: {height: 0},
+        }}
+      />
+      <Drawer.Screen
+        name="Choose ticket"
+        component={ChooseTicketController}
         options={{
           drawerIcon: ({color, size, focused}) => {
             return <Entypo name="user" color={color} size={size} />;
